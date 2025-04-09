@@ -1,0 +1,22 @@
+{
+    "name": "gabriel.silva/tarefas",
+    "type": "project",
+    "require": {
+        "slim/slim": "^4.14",
+        "psr/http-client": "^1.0",
+        "slim/psr7": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "GabrielSilva\\Tarefas\\": "src/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.36"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
