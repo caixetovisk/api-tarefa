@@ -1,14 +1,15 @@
 {
-    "name": "gabriel.silva/tarefas",
+    "name": "gabriel.silva/projetux",
     "type": "project",
     "require": {
         "slim/slim": "^4.14",
         "psr/http-client": "^1.0",
-        "slim/psr7": "^1.7"
+        "slim/psr7": "^1.7",
+        "phpmailer/phpmailer": "^6.9"
     },
     "autoload": {
         "psr-4": {
-            "GabrielSilva\\Tarefas\\": "src/"
+            "Projetux\\": "src/"
         }
     },
     "require-dev": {

@@ -4,7 +4,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use Slim\Exception\HttpNotFoundException;
-use GabrielSilva\Tarefas\Service\TarefaService;
+use Projetux\Service\TarefaService;
+use Projetux\Infra\Debug;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -22,6 +23,12 @@ $errorMiddleware->setErrorHandler(HttpNotFoundException::class, function (
     $response->getBody()->write('{"error": "Recurso não foi encontrado"}');
     return $response->withHeader('Content-Type', 'application/json')
                     ->withStatus(404);
+});
+
+$app->get('/teste-debug',function (Request $request, Response $response, array $args){
+    $debug = new Debug();
+    $response->getBody()->write($debug->debug('teste 00001'));
+    return $response;
 });
 
 
@@ -43,7 +50,6 @@ $app->post('/tarefas', function(Request $request, Response $response, array $arg
     $tarefa = array_merge(['titulo' => '', 'concluido' => false], $parametros);
     $tarefa_service = new TarefaService();
     $tarefa_service->createTarefa($tarefa);
-
    return $response->withStatus(201);
 });
 
@@ -65,7 +71,6 @@ $app->put('/tarefas/{id}', function(Request $request, Response $response, array 
     }
     $tarefa_service = new TarefaService();
     $tarefa_service->updateTarefa($id,$dados_para_atualizar);
-    
     return $response->withStatus(201);
  });
 

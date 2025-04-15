@@ -42,3 +42,46 @@ git branch -M main
 git push origin main
 ```
 
+# Revisão
+## Composer 
+Gerenciador de pacotes, onde podemos instalar dependências externas.
+
+```bash
+# Inicializa um projeto com o composer
+composer init
+```
+
+```bash
+# Instala uma nova dependência do projeto
+composer require nome_dependencia
+# Instala uma nova dependência de desenvolvimento
+composer require nome_dependencia --dev
+```
+
+```bash
+# Remove uma dependência do projeto
+composer remove nome_dependencia
+```
+
+```bash
+# Instala todas as dependências incluindo os de dev que estão listadas no composer.json
+composer install
+
+# Instalar sem os pacotes de desenvolvimento
+composer intsall --no-dev
+```
+
+### O autoload
+
+```
+ "autoload": {
+        "psr-4": {
+            "Projetux": "src/"
+        }
+    },
+```
+
+> toda alteração precisa ser executado o comando
+```bash
+composer dumpautoload
+```
